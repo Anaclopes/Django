@@ -57,7 +57,7 @@ ROOT_URLCONF = 'setup.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #Indicando onde que meus códigos html irão ficar
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +118,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+#Indicando o diretório em que meus arquivos estáticos irão ficar
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'setup/static') #Procurando e acessando a pasta
+]
+
+#Django irá criar a pasta
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') #caminho absoluto para acessar o diretório
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
