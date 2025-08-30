@@ -25,3 +25,8 @@ def buscar(request):
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar) #verificando se os nomes que temos existe alguma parte do que estamos buscando
 
     return render(request, "galeria/buscar.html", {"cards": fotografias})
+
+
+def filtrar(request):
+    categoria = Fotografia.objects.filter(publicada = True)
+    return render(request, "galeria/categoria.html", {"fotografia": categoria})
