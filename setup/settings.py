@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galeria',
+    'galeria.apps.GaleriaConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,11 +121,20 @@ STATIC_URL = 'static/'
 
 #Indicando o diretório em que meus arquivos estáticos irão ficar
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'setup/static') #Procurando e acessando a pasta
+    os.path.join(BASE_DIR, 'setup/static'),
+    #Procurando e acessando a pasta
 ]
 
 #Django irá criar a pasta
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') #caminho absoluto para acessar o diretório
+
+
+# Media
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") #Pegando o caminho da imagem inserida
+
+MEDIA_URL = "/media/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
