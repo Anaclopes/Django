@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./setup/static/assets/logo/desetsu.png" alt="Logo Densetsu" width="300"/>
+  <img src="./setup/static/assets/logo/readme.png" alt="Logo Densetsu" width="300"/>
 </p>
 
 Uma galeria interativa dedicada aos **animes** que marcaram gerações, como *Dragon Ball*, *Super Onze*, *Naruto*, entre outros.  
