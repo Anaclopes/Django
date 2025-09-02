@@ -3,6 +3,11 @@
 <div class="pagina-inicial">
         <header class="cabecalho">
             <img src="{%static '/assets/logo/desetsu.png'%}" class="logo" alt="Logo da Densetsu Space" />
+            {% for message in messages%}
+            <div class="alert alert-primary">
+                <p>{{message}}</p>
+            </div>
+            {%endfor%}
             <div class="cabecalho__busca">
                 <div class="busca__fundo">
                     <!-- Definindo o que irá acontecer após a pesquisa -->
@@ -22,21 +27,21 @@
                     <a href="{% url 'index' %}" id="menu-lateral__atual"><img src="{%static '/assets/ícones/2x/Home - verde.png'%}"> Home</a>
                     <a href="{% url 'login' %}"><img src="{%static '/assets/ícones/1x/Mais vistas - inativo.png'%}"> Login</a>
                     <a href="{% url 'cadastro' %}"><img src="{%static '/assets/ícones/1x/Novas - inativo.png'%}"> Cadastro</a>
-                    <a href="#"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Surpreenda-me</a>
+                    <a href="{% url 'logout' %}"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Logout</a>
                 </nav>
                 {% elif request.resolver_match.url_name == 'login' %}
                 <nav class="menu-lateral__navegacao">
                     <a href="{% url 'index' %}"><img src="{%static '/assets/ícones/2x/Home - inativo.png'%}"> Home</a>
                     <a href="{% url 'login' %}" id="menu-lateral__atual"><img src="{%static '/assets/ícones/2x/login.png'%}"> Login</a>
                     <a href="{% url 'cadastro' %}"><img src="{%static '/assets/ícones/1x/Novas - inativo.png'%}"> Cadastro</a>
-                    <a href="#"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Surpreenda-me</a>
+                    <a href="{% url 'logout' %}"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Logout</a>
                 </nav>
                 {% elif request.resolver_match.url_name == 'cadastro' %}
                 <nav class="menu-lateral__navegacao">
                     <a href="{% url 'index' %}"><img src="{%static '/assets/ícones/2x/Home - inativo.png'%}"> Home</a>
                     <a href="{% url 'login' %}"><img src="{%static '/assets/ícones/1x/Mais vistas - inativo.png'%}"> Login</a>
                     <a href="{% url 'cadastro' %}" id="menu-lateral__atual"><img src="{%static '/assets/ícones/2x/cadastro.png'%}"> Cadastro</a>
-                    <a href="#"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Surpreenda-me</a>
+                    <a href="{% url 'logout' %}"><img src="{%static '/assets/ícones/1x/Surpreenda-me - inativo.png'%}"> Logout</a>
                 </nav>
                 {%endif%}
             </section>
