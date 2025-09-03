@@ -427,3 +427,263 @@ table {
     border: 2px solid #000000;
     cursor: pointer;
 }
+
+/* ---------------------------------------- */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #0A192F;
+  border-bottom: 1px solid #112240;
+}
+
+.logo {
+  color: #00B4D8;
+  font-size: 1.5rem;
+}
+
+/* Botões */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.btn-login {
+  background-color: #00B4D8;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #0096c7;
+}
+
+.btn-register {
+  background-color: #38b000;
+  color: white;
+}
+
+.btn-register:hover {
+  background-color: #2d8600;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #00B4D8;
+}
+
+.hero p {
+  color: #ddd;
+  margin: 20px 0;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+/* Animes em Destaque */
+.destaques {
+  padding: 40px;
+  text-align: center;
+}
+
+.destaques h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #112240;
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00B4D8;
+}
+
+/* Benefícios */
+.beneficios {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.grid-beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-beneficios div {
+  background-color: #112240;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+/* =================================================================== */
+/* --- ESTILOS ESPECÍFICOS PARA A PÁGINA DE DESLOGADO (LANDING PAGE) --- */
+/* =================================================================== */
+
+.bodyDeslog {
+  background: radial-gradient(circle at top, rgb(27, 0, 52), #000);
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-neon {
+  color: #112240 !important;
+  text-shadow: 0 0 10px #112240;
+}
+
+#mainNavbar {
+  background: rgba(0,0,0,0.8) !important;
+  border-bottom: 1px solid #112240;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at top, rgb(27, 0, 52), #000);
+  overflow: hidden;
+}
+
+/* Background com imagem */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* Efeitinho de fumaça*/
+  background: 
+    linear-gradient(to bottom, rgba(27,0,52,0.9) 0%, rgba(0,0,0,0.9) 100%),
+    url("{%static '/assets/imagens/deslog/teste_d.webp'%}") center/cover no-repeat;
+  opacity: 0.8; /* controla a intensidade */
+  z-index: 0;
+  animation: zoomBG 20s ease-in-out infinite alternate;
+}
+
+
+@keyframes zoomBG {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+
+
+/* Garante que o conteúdo fique acima */
+.hero h1,
+.hero p,
+.hero .btn {
+  position: relative;
+  z-index: 1;
+}
+
+
+.btn-neon {
+  background: transparent;
+  border: 2px solid #112240;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn-neon:hover {
+  background: #112240;
+  box-shadow: 0 0 15px #112240;
+}
+
+/* Progresso */
+.progress-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #112240;
+}
+
+.progress-circle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a020f0;
+}
+
+/* Cards de anime */
+.card-anime {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #112240;
+  border-radius: 20px;
+  transition: transform 0.3s;
+  
+}
+
+.card-anime img{
+  height: 140px;
+  object-fit: cover;
+}
+.card-anime:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #112240;
+}
+
+/* Categorias */
+.category-btn {
+  border: 1px solid #112240;
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-btn:hover {
+  background: #112240;
+  box-shadow: 0 0 15px #112240;
+}
+
+/* Features */
+.feature-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #112240;
+  transition: 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #112240;
+}
+
+/* Preview */
+.preview-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #112240;
+}
+
+

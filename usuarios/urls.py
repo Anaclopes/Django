@@ -4,5 +4,6 @@ from usuarios.views import *
 urlpatterns = [
     path('login', login, name='login'),
     path('cadastro', cadastro, name='cadastro'),
-    path('logout', logout, name='logout')
+    path('logout', logout, name='logout'),
+    path('deslog', deslogado, name='deslog')
 ]

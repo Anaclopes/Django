@@ -28,3 +28,20 @@ loginLink.addEventListener('click', () => {
     wrapper.classList.remove('active');
 });
 
+
+
+// Deslogado
+    document.addEventListener("scroll", function() {
+    const navbar = document.getElementById("mainNavbar");
+    const progressoSection = document.querySelector(".container");
+
+    if (progressoSection) {
+      const progressoTop = progressoSection.getBoundingClientRect().top;
+
+      if (progressoTop <= 0) {
+        navbar.style.display = "flex"; // mostra a navbar
+      } else {
+        navbar.style.display = "none"; // esconde a navbar
+      }
+    }
+  });

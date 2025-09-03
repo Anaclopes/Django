@@ -76,4 +76,12 @@ def cadastro(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, "Logout efetuado com sucesso!")
-    return redirect('login')
+    return redirect('index')
+
+def deslogado(request):
+    if User.is_authenticated:
+        if request.user.is_authenticated:
+            return redirect('index') 
+    return render(request, 'usuarios/deslog.html')
+
+        

@@ -9,4 +9,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('galeria.urls')), #puxando as urls isoladas para cá
     path('', include('usuarios.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Passa para o django que ele precisa utilizar as variáveis que criamos no settings
