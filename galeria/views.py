@@ -1,14 +1,18 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse #Biblioteca para definir diversas formas de responder a uma requisição
 from galeria.models import Fotografia
-
+from django.contrib import messages
 
 def index(request): #recebendo a requisição
+    if not request.user.is_authenticated: #Se não estiver logado, será levado para a página de login
+        messages.error('Usuário deslogado')
+        return redirect('login')
     #fotografias = Fotografia.objects.all() #passando todos itens que tenho no banco
     #mais antigo primeiro, mais novo depois
     fotografias = Fotografia.objects.order_by("-data").filter(publicada = True) #passando apenas as publicadas
     #render permite retornar e enviar 
     return render(request, 'galeria/index.html', {"cards": fotografias}) #O parâmetro sempre virá primeiro
+    
 
 #recebendo a imagem
 def imagem(request, foto_id):
@@ -16,6 +20,8 @@ def imagem(request, foto_id):
     return render(request, 'galeria/imagem.html', {"fotografia": fotografia}) #acessando o objeto no banco de dados ao qual o id faz referência
 
 def buscar(request):
+    if not request.user.is_authenticated: 
+        return redirect('login')
     fotografias = Fotografia.objects.order_by("-data").filter(publicada = True) 
 
     if "buscar" in request.GET: #Verificando se tenho buscar na minha url

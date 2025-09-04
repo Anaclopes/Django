@@ -1,47 +1,66 @@
-const wrapper = document.querySelector('.wrapper');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
+document.addEventListener('DOMContentLoaded', () => {
+  const bodyId = document.body.id;
 
-// Função para verificar a URL e mostrar a tela correta
-function showCorrectForm() {
-    // Pega o caminho da URL
-    const path = window.location.pathname;
+  if (bodyId === "auth") {
+    const wrapper = document.querySelector('.wrapper');
+    const loginLink = document.querySelector('.login-link');
+    const registerLink = document.querySelector('.register-link');
 
-    // Se a URL for de cadastro, adiciona a classe 'active'
-    if (path.includes('/cadastro')) {
+    // Verifica a URL atual e aplica a classe
+    function showCorrectForm() {
+      const path = window.location.pathname;
+      if (path.includes('/cadastro')) {
         wrapper.classList.add('active');
-    } else {
-        // Se a URL for de login, remove a classe 'active'
-        wrapper.classList.remove('active');
-    }
-}
-
-// Chama a função quando a página carregar
-window.onload = showCorrectForm;
-
-// Adiciona os eventos de clique para mudar entre as telas
-registerLink.addEventListener('click', () => {
-    wrapper.classList.add('active');
-});
-
-loginLink.addEventListener('click', () => {
-    wrapper.classList.remove('active');
-});
-
-
-
-// Deslogado
-    document.addEventListener("scroll", function() {
-    const navbar = document.getElementById("mainNavbar");
-    const progressoSection = document.querySelector(".container");
-
-    if (progressoSection) {
-      const progressoTop = progressoSection.getBoundingClientRect().top;
-
-      if (progressoTop <= 0) {
-        navbar.style.display = "flex"; // mostra a navbar
       } else {
-        navbar.style.display = "none"; // esconde a navbar
+        wrapper.classList.remove('active');
       }
     }
-  });
+
+    // Executa logo ao carregar
+    showCorrectForm();
+
+    // Clique em "Sign up"
+    registerLink.addEventListener('click', (e) => {
+      e.preventDefault(); // impede reload
+      wrapper.classList.add('active');
+      history.pushState({}, "", "/cadastro"); // troca a URL sem recarregar
+    });
+
+    // Clique em "Login"
+    loginLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      wrapper.classList.remove('active');
+      history.pushState({}, "", "/login");
+    });
+
+    // Suporte ao botão voltar/avançar do navegador
+    window.addEventListener('popstate', showCorrectForm);
+
+  } else if (bodyId === "deslog") {
+    document.addEventListener("scroll", function () {
+      const navbar = document.getElementById("mainNavbar");
+      const progressoSection = document.querySelector(".container");
+
+      if (progressoSection) {
+        const progressoTop = progressoSection.getBoundingClientRect().top;
+
+        if (progressoTop <= 0) {
+          navbar.style.display = "flex";
+        } else {
+          navbar.style.display = "none";
+        }
+      }
+    });
+  }
+});
+
+// 1. Seleciona todas as divs com a classe 'alert'
+    const alertMessages = document.querySelectorAll('.alert');
+
+    // 2. Para cada mensagem de alerta encontrada...
+    alertMessages.forEach(function(message) {
+        // 3. ...define um temporizador de 5 segundos para escondê-la
+        setTimeout(function() {
+            message.style.display = 'none';
+        }, 5000); // 5000 milissegundos = 5 segundos. Você pode mudar esse valor.
+    });

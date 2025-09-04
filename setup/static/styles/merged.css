@@ -20,14 +20,15 @@
 }
 
 .wrapper{
-    flex: 1;
+    flex: 0 0 auto;      /* impede crescer/encolher */
+    /* flex: 1; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     position: relative;
     width: 750px;
-    height: 450px;
+    min-height: 450px;
     background: var(--white);
     border: 2px solid var(--black);
     border-radius: 10px;

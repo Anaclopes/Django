@@ -79,9 +79,11 @@ def logout(request):
     return redirect('index')
 
 def deslogado(request):
-    if User.is_authenticated:
-        if request.user.is_authenticated:
-            return redirect('index') 
+    if request.user.is_authenticated:
+        # Se o usuário ainda estiver logado, redireciona para a página inicial.
+        return redirect('index') 
+    
+    # Se o usuário não estiver logado (ou seja, o logout funcionou),
+    # mostra a página de confirmação.
     return render(request, 'usuarios/deslog.html')
-
         
