@@ -22,7 +22,7 @@
         </header>
         <main class="principal">
             <section class="menu-lateral">
-                {% if request.resolver_match.url_name == 'index' %}
+                {% if request.resolver_match.url_name == 'index' or 'imagem' or 'buscar'  %}
                 <nav class="menu-lateral__navegacao">
                     <a href="{% url 'index' %}" id="menu-lateral__atual"><img src="{%static '/assets/ícones/2x/Home - verde.png'%}"> Home</a>
                     <a href="{% url 'login' %}"><img src="{%static '/assets/ícones/1x/Mais vistas - inativo.png'%}"> Login</a>
